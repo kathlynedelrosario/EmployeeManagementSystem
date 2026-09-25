@@ -1,4 +1,5 @@
 ﻿import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Form, Input, Button, Card, Typography, message } from "antd";
 
@@ -6,6 +7,7 @@ const { Title } = Typography;
 
 function Login() {
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const onFinish = async (values) => {
         try {
@@ -17,7 +19,8 @@ function Login() {
             );
 
             message.success(response.data.message);
-            console.log(response.data);
+            //console.log(response.data);
+            navigate("/dashboard");
         } catch (error) {
             console.error(error);
             message.error(
