@@ -95,7 +95,7 @@ function Login() {
                                 fontWeight: 600,
                             }}
                         >
-                            Hello, I'm Kath!git
+                            Hello, I'm Kath!
                         </Title>
 
                         <Text
