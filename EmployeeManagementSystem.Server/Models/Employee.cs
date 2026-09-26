@@ -20,5 +20,7 @@ namespace EmployeeManagementSystem.Server.Models
         public decimal Salary { get; set; }
 
         public DateTime DateHired { get; set; }
+
+        public bool IsArchived { get; set; } = false;
     }
 }

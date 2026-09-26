@@ -4,7 +4,6 @@ import {
     Table,
     Button,
     Typography,
-    Card,
     message,
     Popconfirm,
 } from "antd";
@@ -123,14 +122,14 @@ function Archive() {
             render: (salary) =>
                 salary !== null &&
                     salary !== undefined
-                    ? `?${Number(salary).toLocaleString(
+                    ? `\u20B1${Number(salary).toLocaleString(
                         "en-PH",
                         {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                         }
                     )}`
-                    : "?0.00",
+                    : "\u20B10.00",
         },
         {
             title: "Date Hired",
@@ -188,24 +187,32 @@ function Archive() {
     ];
 
     return (
-        <div style={{ padding: "24px" }}>
-            <Card>
-                <Title level={2}>
-                    Archived Employees
-                </Title>
+        <div
+            style={{
+                minHeight: "100vh",
+                padding: "32px",
+                background: "#f5f5f5",
+            }}
+        >
+            <Title level={2} style={{ marginTop: 0 }}>
+                Archived Employees
+            </Title>
 
-                <Table
-                    columns={columns}
-                    dataSource={employees}
-                    rowKey="id"
-                    loading={loading}
-                    pagination={{
-                        pageSize: 10,
-                    }}
-                />
-            </Card>
+            <Table
+                columns={columns}
+                dataSource={employees}
+                rowKey="id"
+                loading={loading}
+                pagination={{
+                    pageSize: 10,
+                }}
+                style={{
+                    background: "#fff",
+                }}
+            />
         </div>
     );
+   
 }
 
 export default Archive;
